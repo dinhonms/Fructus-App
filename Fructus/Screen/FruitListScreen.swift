@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct FruitListScreen: View {
     //MARK: - PROPERTIES
     var fruits: [Fruit] = fruitsData
     @AppStorage("isOnboardingActive") var isOnboardingActive = false
@@ -16,8 +16,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(fruits.shuffled()){ item in
-                FruitRowView(fruit: item)
-                    .padding(.vertical, 4)
+                NavigationLink(destination: FruitDetailScreen(fruit: item)){
+                    FruitRowView(fruit: item)
+                        .padding(.vertical, 4)
+                }
             }
             .navigationTitle("Fruits")
         }
@@ -27,6 +29,6 @@ struct ContentView: View {
 //MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FruitListScreen()
     }
 }
