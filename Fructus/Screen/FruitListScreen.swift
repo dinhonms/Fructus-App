@@ -11,6 +11,7 @@ struct FruitListScreen: View {
     //MARK: - PROPERTIES
     var fruits: [Fruit] = fruitsData
     @AppStorage("isOnboardingActive") var isOnboardingActive = false
+    @State private var isSettingsActive = false
     
     //MARK: - BODY
     var body: some View {
@@ -22,6 +23,16 @@ struct FruitListScreen: View {
                 }
             }
             .navigationTitle("Fruits")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    isSettingsActive = true
+                }, label: {
+                    Image(systemName: "slider.horizontal.3")
+                })
+                    .sheet(isPresented: $isSettingsActive, content: {
+                        SettingsScreen()
+                    })
+            )
         }
     }
 }

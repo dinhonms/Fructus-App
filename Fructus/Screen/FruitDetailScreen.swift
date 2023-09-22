@@ -20,8 +20,8 @@ struct FruitDetailScreen: View {
                 //HEADER
                 FruitHeadView(fruit: fruit)
                     .ignoresSafeArea()
-                    .offset(y: isAnimating ? -100 : 0)
-                    .scaleEffect(isAnimating ? 0.9 : 1)
+//                    .offset(y: isAnimating ? -100 : 0)
+//                    .scaleEffect(isAnimating ? 0.9 : 1)
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack(alignment: .center, spacing: 20) {
@@ -38,6 +38,7 @@ struct FruitDetailScreen: View {
                                 .multilineTextAlignment(.leading)
                             
                             //NUTRIENTS
+                            FruitNutrientsView(fruit: fruit)
                             
                             //SUBHEADLINE
                             Text("Learn more about \(fruit.title)".uppercased())
