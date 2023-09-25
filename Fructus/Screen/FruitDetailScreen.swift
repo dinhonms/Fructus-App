@@ -17,15 +17,15 @@ struct FruitDetailScreen: View {
     var body: some View {
         NavigationView{
             VStack {
-                //HEADER
-                FruitHeadView(fruit: fruit)
-                    .ignoresSafeArea()
-//                    .offset(y: isAnimating ? -100 : 0)
-//                    .scaleEffect(isAnimating ? 0.9 : 1)
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack(alignment: .center, spacing: 20) {
                         VStack(alignment: .center, spacing: 20) {
+                            //HEADER
+                            FruitHeadView(fruit: fruit)
+                                .ignoresSafeArea()
+                            //                    .offset(y: isAnimating ? -100 : 0)
+                            //                    .scaleEffect(isAnimating ? 0.9 : 1)
                             //TITLE
                             Text(fruit.title)
                                 .font(.largeTitle)
