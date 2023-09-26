@@ -34,6 +34,19 @@ struct SettingsScreen: View {
                         Divider().padding(.vertical, 4)
                     }
 
+                    GroupBox {
+                        SettingsRowView(name: "Developer", content: "John / Jane")
+                        SettingsRowView(name: "Designer", content: "Robert Petras")
+                        SettingsRowView(name: "Compatibility", content: "iOS 14")
+                        SettingsRowView(name: "Website", linkLabel: "SwiftUI Masterclass", linkDestination: "swiftuimasterclass.com")
+                        SettingsRowView(name: "Twitter", linkLabel: "@RobertPetras", linkDestination: "twitter.com/robertpetras")
+                        SettingsRowView(name: "SwiftUI", content: "5.2")
+                        SettingsRowView(name: "App Vertsion", content: "0.5.3")
+                        
+                    } label: {
+                        LabelView(labelText: "Application", labelImage: "apps.iphone")
+                    }
+
                 }
                 .navigationBarTitle(Text("Settings"), displayMode: .large)
                 .navigationBarItems(
