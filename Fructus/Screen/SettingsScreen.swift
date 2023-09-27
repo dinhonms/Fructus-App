@@ -6,11 +6,33 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct SettingsScreen: View {
     //MARK: - PROPERTIES
     //stores the view presentation properties which are: dismiss and is Presented
     @Environment(\.presentationMode) var presentationMode
+    @AppStorage("isOnboardingActive") var isOnboardingActive = true
+    @State private var isShowingPopup = false
+    @State private var toggleState = false
+    
+    private func onYesPressed(){
+        isShowingPopup = false
+        toggleState = true
+        isOnboardingActive = true
+    }
+    
+    private func onNoPressed(){
+        isShowingPopup = false
+        toggleState = false
+        isOnboardingActive = false
+    }
+    
+    private func onClosePressed(){
+        isShowingPopup = false
+        toggleState = false
+        isOnboardingActive = false
+    }
     
     //MARK: - BODY
     var body: some View {
@@ -18,6 +40,7 @@ struct SettingsScreen: View {
             ScrollView(.vertical, showsIndicators: false){
                 
                 VStack(spacing: 20) {
+                    
                 //MARK: - SECTION 1
                     GroupBox {
                         HStack {
@@ -33,7 +56,35 @@ struct SettingsScreen: View {
                         LabelView(labelText: "Fructus", labelImage: "info.circle")
                         Divider().padding(.vertical, 4)
                     }
+                    
+                    //MARK: - SECTION 2
+                    GroupBox {
+                        Text("If you wish, you can restart the application by toggling this box. That way it starts the onboarding process and you will see the welcome screen again")
+                            .padding(.vertical, 8)
+                            .frame(minHeight: 60)
+                            .layoutPriority(1)
+                            .font(.footnote)
+                            .multilineTextAlignment(.leading)
+                        
+                        Toggle(isOn: $isShowingPopup){
+                            Text("Restart".uppercased())
+                        }
+                        .onChange(of: toggleState) { newValue in
+                            print("Toggle state: \(newValue)")
+                            
+                            if newValue {
+//                                isOnboardingActive = false
+                            }
+                        }
+                        
+                        
+                    } label: {
+                        LabelView(labelText: "Customization", labelImage: "paintbrush")
+                        Divider().padding(.vertical, 4)
+                    }
 
+                    
+                    //MARK: - SECTION 3
                     GroupBox {
                         SettingsRowView(name: "Developer", content: "John / Jane")
                         SettingsRowView(name: "Designer", content: "Robert Petras")
@@ -59,6 +110,16 @@ struct SettingsScreen: View {
                 )
                 .padding()
             }
+        }
+        .popup(isPresented: $isShowingPopup){
+            ConfirmPopupView(onYesPressed: onYesPressed, onNoPressed: onNoPressed, onClosePressed: onClosePressed)
+        } customize: {
+            $0.type(.default)
+                .position(.center)
+                .animation(.easeIn)
+                .closeOnTapOutside(false)
+                .backgroundColor(.black.opacity(0.5))
+                .closeOnTap(false)
         }
     }
 }

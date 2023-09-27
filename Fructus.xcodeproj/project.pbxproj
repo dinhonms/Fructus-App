@@ -21,6 +21,8 @@
 		777C6F542AA0A16B0074C59C /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C6F532AA0A16B0074C59C /* OnboardingScreen.swift */; };
 		7790DB6A2AC1955B00FD191A /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790DB692AC1955B00FD191A /* LabelView.swift */; };
 		779B795B2AC2E0E400A71B8C /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B795A2AC2E0E400A71B8C /* SettingsRowView.swift */; };
+		779B795D2AC2E83E00A71B8C /* ConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B795C2AC2E83E00A71B8C /* ConfirmPopupView.swift */; };
+		77B34A032AC431070002362C /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 77B34A022AC431070002362C /* PopupView */; };
 		77C395292AB9A60A007BB194 /* FruitDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C395282AB9A60A007BB194 /* FruitDetailScreen.swift */; };
 		7AF2C1EA2AA5E62B00B6F8EF /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2C1E92AA5E62B00B6F8EF /* Fruit.swift */; };
 		7AF2C1ED2AA5E6DD00B6F8EF /* FruitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2C1EC2AA5E6DD00B6F8EF /* FruitData.swift */; };
@@ -42,6 +44,7 @@
 		777C6F532AA0A16B0074C59C /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		7790DB692AC1955B00FD191A /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		779B795A2AC2E0E400A71B8C /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		779B795C2AC2E83E00A71B8C /* ConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopupView.swift; sourceTree = "<group>"; };
 		77C395282AB9A60A007BB194 /* FruitDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailScreen.swift; sourceTree = "<group>"; };
 		7AF2C1E92AA5E62B00B6F8EF /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		7AF2C1EC2AA5E6DD00B6F8EF /* FruitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitData.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B34A032AC431070002362C /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +119,7 @@
 				7762BE742ABD982700737468 /* FruitNutrientsView.swift */,
 				7790DB692AC1955B00FD191A /* LabelView.swift */,
 				779B795A2AC2E0E400A71B8C /* SettingsRowView.swift */,
+				779B795C2AC2E83E00A71B8C /* ConfirmPopupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +167,9 @@
 			dependencies = (
 			);
 			name = Fructus;
+			packageProductDependencies = (
+				77B34A022AC431070002362C /* PopupView */,
+			);
 			productName = Fructus;
 			productReference = 777C6F3C2AA096C40074C59C /* Fructus.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +198,9 @@
 				Base,
 			);
 			mainGroup = 777C6F332AA096C40074C59C;
+			packageReferences = (
+				77B34A012AC431070002362C /* XCRemoteSwiftPackageReference "PopupView" */,
+			);
 			productRefGroup = 777C6F3D2AA096C40074C59C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,6 +241,7 @@
 				77C395292AB9A60A007BB194 /* FruitDetailScreen.swift in Sources */,
 				770C510C2ABC44DD009005AF /* FruitHeadView.swift in Sources */,
 				7AF2C1EA2AA5E62B00B6F8EF /* Fruit.swift in Sources */,
+				779B795D2AC2E83E00A71B8C /* ConfirmPopupView.swift in Sources */,
 				777C6F402AA096C40074C59C /* FructusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +441,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77B34A012AC431070002362C /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77B34A022AC431070002362C /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77B34A012AC431070002362C /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 777C6F342AA096C40074C59C /* Project object */;
 }
