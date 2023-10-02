@@ -34,14 +34,12 @@ struct ConfirmPopupView: View {
                 HStack (spacing: 20){
                     Button {
                         onYesPressed()
-                        onClosePressed()
                     } label: {
                         Text("Yes")
                     }
                     
                     Button {
                         onNoPressed()
-                        onClosePressed()
                     } label: {
                         Text("No")
                     }

@@ -20,12 +20,12 @@ struct FruitDetailScreen: View {
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack(alignment: .center, spacing: 20) {
+                        //HEADER
+                        FruitHeadView(fruit: fruit)
+                            .ignoresSafeArea()
+                        //                    .offset(y: isAnimating ? -100 : 0)
+                        //                    .scaleEffect(isAnimating ? 0.9 : 1)
                         VStack(alignment: .center, spacing: 20) {
-                            //HEADER
-                            FruitHeadView(fruit: fruit)
-                                .ignoresSafeArea()
-                            //                    .offset(y: isAnimating ? -100 : 0)
-                            //                    .scaleEffect(isAnimating ? 0.9 : 1)
                             //TITLE
                             Text(fruit.title)
                                 .font(.largeTitle)

@@ -12,7 +12,7 @@ struct SettingsScreen: View {
     //MARK: - PROPERTIES
     //stores the view presentation properties which are: dismiss and is Presented
     @Environment(\.presentationMode) var presentationMode
-    @AppStorage("isOnboardingActive") var isOnboardingActive = true
+    @AppStorage("isOnboardingActive") var isOnboardingActive = false
     @State private var isShowingPopup = false
     @State private var toggleState = false
     
@@ -20,18 +20,22 @@ struct SettingsScreen: View {
         isShowingPopup = false
         toggleState = true
         isOnboardingActive = true
+        print("YES: \(isOnboardingActive)")
+        presentationMode.wrappedValue.dismiss()
     }
     
     private func onNoPressed(){
         isShowingPopup = false
         toggleState = false
         isOnboardingActive = false
+        print("NO: \(isOnboardingActive)")
     }
     
     private func onClosePressed(){
         isShowingPopup = false
         toggleState = false
         isOnboardingActive = false
+        print("CLOSE: \(isOnboardingActive)")
     }
     
     //MARK: - BODY
