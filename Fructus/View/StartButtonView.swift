@@ -10,7 +10,7 @@ import SwiftUI
 struct StartButtonView: View {
     @AppStorage("isOnboardingActive") var isOnboardingActive = false
     @State var buttonText = "Start"
-    @State var showButtonImage = true
+    @State var showButtonBorder = true
     
     var body: some View {
         Button {
@@ -19,15 +19,15 @@ struct StartButtonView: View {
             HStack {
                 Text(buttonText)
                 
-                if showButtonImage{
+                if showButtonBorder{
                     Image(systemName: "arrow.right.circle")
-                                        .imageScale(.large)
-                }                
+                        .imageScale(.large)
+                }
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
             .background(
-                Capsule().strokeBorder(.white, lineWidth: showButtonImage ? 1.25 : 0)
+                Capsule().strokeBorder(.white, lineWidth: showButtonBorder ? 1.25 : 0)
             )
         }
         .foregroundColor(.white)

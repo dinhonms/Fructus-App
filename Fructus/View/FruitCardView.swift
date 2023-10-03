@@ -38,7 +38,7 @@ struct FruitCardView: View {
             }//VStack
         }//ZStack
         .overlay(alignment: .topTrailing, content: {
-            StartButtonView(buttonText: "Skip", showButtonImage: false)
+            StartButtonView(buttonText: "Skip", showButtonBorder: false)
                 .offset(x: -20, y: -120)
         })
         .onAppear(perform: {

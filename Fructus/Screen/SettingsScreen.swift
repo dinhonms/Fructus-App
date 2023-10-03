@@ -71,8 +71,15 @@ struct SettingsScreen: View {
                             .multilineTextAlignment(.leading)
                         
                         Toggle(isOn: $isShowingPopup){
-                            Text("Restart".uppercased())
+                            if toggleState {
+                                Text("Restarted".uppercased())
+                                    .foregroundColor(.green)
+                            } else {
+                                Text("Restart".uppercased())
+                                    .foregroundColor(.secondary)
+                            }
                         }
+                        .fontWeight(.bold)
                         .onChange(of: toggleState) { newValue in
                             print("Toggle state: \(newValue)")
                             
@@ -80,6 +87,13 @@ struct SettingsScreen: View {
 //                                isOnboardingActive = false
                             }
                         }
+                        .padding()
+                        .background(
+                            Color(UIColor.tertiarySystemGroupedBackground)
+                                .clipShape(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                 )
+                        )
                         
                         
                     } label: {

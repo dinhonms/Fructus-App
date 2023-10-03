@@ -12,6 +12,16 @@ struct ConfirmPopupView: View {
     var onNoPressed: (() -> Void)
     var onClosePressed: (() -> Void)
     
+    let generator = UINotificationFeedbackGenerator()
+    
+    func successHaptic(){
+        generator.notificationOccurred(.success)
+    }
+    
+    func failHaptic(){
+        generator.notificationOccurred(.error)
+    }
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
@@ -21,6 +31,7 @@ struct ConfirmPopupView: View {
                 .overlay(
                     Button(action: {
                         onClosePressed()
+                        failHaptic()
                         print("close pressed!")
                     }, label: {
                         Text("Close")
@@ -34,12 +45,14 @@ struct ConfirmPopupView: View {
                 HStack (spacing: 20){
                     Button {
                         onYesPressed()
+                        successHaptic()
                     } label: {
                         Text("Yes")
                     }
                     
                     Button {
                         onNoPressed()
+                        failHaptic()
                     } label: {
                         Text("No")
                     }
