@@ -34,6 +34,7 @@ struct FruitListScreen: View {
                     })
             )
         }
+        .navigationViewStyle(.stack)
     }
 }
 

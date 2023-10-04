@@ -62,6 +62,7 @@ struct FruitDetailScreen: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
